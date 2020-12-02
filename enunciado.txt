@@ -1,0 +1,63 @@
+Como parte de tu ingreso a Nubi te vamos a pedir que realices el siguiente ejercicio:
+
+
+Dado el siguiente listado de Features solicitadas por el Product Owner, el equipo de desarrollo realizó una API en Python utilando Flask.
+
+Features:
+
+Como Product Owner, me gustaría tener un sistema que me permita realizar encuestas.
+Como Product Owner, me gustaría que cada pregunta pueda tener una o más respuestas.
+Como Product Owner, me gustaría que los usuarios de mi aplicación puedan cargar preguntas y sus respectivas respuestas multiple choice.
+Como Product Owner, me gustaría que al responder una encuesta, solamente se pueda responder las preguntas de esa encuesta y solamente se puedan seleccionar opciones multiple choice de esas preguntas.
+Como Product Owner, me gustaría poder revisar un historial de preguntas y respuestas por usuario.
+Como Product Owner, me gustaría poder acceder a un listado de todas las encuestas del sistema.
+Como Product Owner, me gustaría que las encuestas tengan vencimiento y que no se puedan responder encuestas vencidas.
+
+-------------------------------------------------------------------------------------------------
+
+Se necesita realizar un Code Review para validar que el producto desarrollado cumpla con los Requerimientos solicitados. Para eso se debe
+revisar, detectar y mejorar todo lo que pueda aportar a lograr un sistema de calidad.
+
+El entregable del Code Review será:
+* Un listado con los 5 problemas más críticos encontrados, ordenados del más crítico al menos crítico
+* La resolución de por lo menos 3 de los problemas encontrados (ideal todos)
+
+Documentación entregada por el equipo de desarrollo: 
+
+Feature relacionada: alta de encuesta
+Endpoint: /polls/add
+Metodo HTTP: POST
+Ejemplo de JSON request schema válido:
+{
+    "name": "Encuesta ",
+    "expiration": "10/12/2020",
+    "questions": {"¿Te gustan las encuestas?": ["Si", "No"], "¿Cuantas encuestas haces por año?" : ["1","2"]},
+    "tags":["soyetiqueta"]
+}
+
+Feature relacionada: responder encuesta
+Endpoint: /answers/add
+Metodo HTTP: POST
+Ejemplo de JSON request schema válido:
+{
+    "pollid": "5f08e7085e1b7b126ff88234",
+    "answers": {"¿Te gustan las encuestas?":"Si", "¿Cuantas encuestas haces por año?":"2" },
+    "email": "ddmilgram@gmail.com"
+}
+
+Feature relacionada: Historial por usuario
+Endpoint: /answers/answersbyuser
+Metodo HTTP: POST
+Ejemplo de JSON request schema válido:
+{
+    "email":"ddmilgram@gmail.com"
+}
+
+Feature relacionada: Listado de encuestas
+Endpoint: /polls/getall
+Metodo HTTP: GET
+Login requerido: Si
+Ejemplo de JSON request schema válido: -
+
+
+
